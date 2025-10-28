@@ -1,11 +1,13 @@
-import './styles.css'
+import React from 'react';
+import './styles.css';
+import SPACE from '../../assets/images/SPACE.jpeg';
 
-function HomePage() {
+export default function HomePage() {
   return (
-    <div>
-      HomePage
-    </div>
-  )
+    <section className="logo-container">
+      <div className="home-session-container">
+        <img src={SPACE} alt="SPACE" className="session-image" />
+      </div>
+    </section>
+  );
 }
-
-export default HomePage
