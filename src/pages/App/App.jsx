@@ -7,7 +7,7 @@ import SessionIndexPage from '../SessionIndexPage/SessionIndex';
 import SessionDetailPage from '../SessionDetailPage/SessionDetail';
 import SessionForm from '../../components/form/SessionFormPage/SessionForm';
 
-import headerLogo from '../../assets/images/SPACE.jpeg'; 
+// import headerLogo from '../../assets/images/SPACE.jpeg'; 
 
 function App() {
   const location = useLocation();
@@ -21,7 +21,7 @@ function App() {
       <header>
         <div className={`${mainCSS} header-logo-container`}>
           <Link to="/">
-            <img src={headerLogo} alt="Logo" />
+            <img src='LOGO.jpeg' alt="Logo" />
           </Link>
         </div>
         <nav>
@@ -35,13 +35,15 @@ function App() {
 
       <main className={mainCSS}>
         <Routes>          
-          <Route path="/*" element={<Navigate to="/" />} />
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/session" element={<SessionIndexPage />} />
-          <Route path="/session/:id" element={<SessionDetailPage />} />
-          <Route path="/session/new" element={<SessionForm />}/>
-
+          <Route path="/*"                          element={<Navigate to="/" />} />
+          <Route path="/"                           element={<HomePage />} />
+          <Route path="/about"                      element={<AboutPage />} />
+          <Route path="/session"                    element={<SessionIndexPage />} />
+          <Route path="/session/:id"                element={<SessionDetailPage />} />
+          <Route path="/session/new"                element={<SessionForm />}/>
+          <Route path="/session/edit/:id"           element={<SessionForm />} />
+          <Route path="/session/confirm_delete/:id" element={<SessionForm  />} />
+        
         </Routes>
       </main>
     </>

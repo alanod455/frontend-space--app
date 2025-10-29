@@ -13,3 +13,10 @@ export async function create(sessionData) {
   return sendRequest(url, 'POST', sessionData);
 }
 
+export async function update(id, data) {
+  return sendRequest(`${url}${id}/`, 'PUT', data);
+}
+
+export async function deleteSession(sessionId) {
+  return sendRequest(`${url}${sessionId}/`, "DELETE");
+}
