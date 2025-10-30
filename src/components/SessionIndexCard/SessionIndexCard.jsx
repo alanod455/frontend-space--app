@@ -10,7 +10,7 @@ export default function SessionIndexCard({ session }) {
     >
       <div className="session-card">
         <img
-          src={session.image || '/planet.jpeg'}
+          src={session.image || '/CARD.png'}
           alt={session.title}
           className="session-image"
         />

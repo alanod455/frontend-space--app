@@ -1,0 +1,32 @@
+
+.session-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: fadeIn 1s ease-out;
+}
+
+
+.session-heading {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 2rem;
+  color: #e0e0ff;
+  margin-bottom: 20px;
+  text-shadow: 0 0 8px rgba(180, 140, 255, 0.3);
+}
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -75,23 +75,35 @@ export default function SessionForm() {
     });
   }
 
-  async function saveSession() {
-    const base64Image = image ? await convertToBase64(image) : null;
-    const sessionData = { title, duration, image: base64Image };
+
+  const saveSession = async () => {
+    let base64Image;
+
+    if (image) {
+      base64Image = await convertToBase64(image);
+    } else {
+      const response = await fetch('/CARD.png');
+      const blob = await response.blob();
+      base64Image = await convertToBase64(blob);
+    }
+
+    const sessionData = {
+      title,
+      duration,
+      image: base64Image,
+      sound,
+    };
 
     try {
       const newSession = await sessionAPI.create(sessionData);
-      setShowCongrats(true);
-      setTimeout(() => {
-        navigate(`/session/${newSession.id}`, { state: { session: newSession } });
-      }, 10000);
-    } catch (err) {
-      console.log('Error saving session:', err);
+      navigate(`/session/${newSession.id}`, { state: { session: newSession } });
+    } catch (error) {
+      console.error("Error saving session:", error);
     }
-  }
+  };
 
   async function handleUpdateSession() {
-    const updatedData = { title };
+    const updatedData = { title, sound };
 
     if (image instanceof File) {
       const base64Image = await convertToBase64(image);
@@ -229,7 +241,6 @@ export default function SessionForm() {
             </label>
             {image && (
               <div className="image-preview">
-                <p>Image Preview:</p>
                 <img
                   src={image instanceof File ? URL.createObjectURL(image) : image}
                   alt="Session preview"
@@ -287,6 +298,7 @@ export default function SessionForm() {
       </section>
     </>
   );
+
 
   return null;
 }

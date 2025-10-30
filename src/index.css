@@ -1,0 +1,87 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('./assets/images/BACK.jpeg'); 
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: 0 0;
+  animation: moveStars 300s linear infinite;
+  color: #e0e0ff;
+  font-family: 'Orbitron', 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+a {
+  color: #b8aaff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #d6cfff;
+}
+
+
+h1, h2, h3, h4 ,label,p{
+  color: #f0f0ff;
+  font-weight: 500;
+}
+
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn.warn {
+  background-color: #5c3b8a;
+  color: #fff;
+}
+
+.btn.warn:hover {
+  background-color: #7a4fc2;
+}
+
+.btn.danger {
+  background-color: #8a2c2c;
+  color: #fff;
+}
+
+.btn.danger:hover {
+  background-color: #b33a3a;
+}
+
+
+.container {
+  background-color: rgba(20, 20, 30, 0.85);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(128, 0, 255, 0.2);
+}
+
+
+
+
+
+/*  حركة الصورة */
+@keyframes moveStars {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -1000px -1000px;
+  }
+}

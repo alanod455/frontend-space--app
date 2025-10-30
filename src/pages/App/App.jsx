@@ -21,7 +21,7 @@ function App() {
       <header>
         <div className={`${mainCSS} header-logo-container`}>
           <Link to="/">
-            <img src='LOGO.jpeg' alt="Logo" />
+            <img src='/LOGO.jpeg' alt="Logo" />
           </Link>
         </div>
         <nav>
