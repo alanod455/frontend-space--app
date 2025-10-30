@@ -6,8 +6,8 @@ import AboutPage from '../AboutPage/About';
 import SessionIndexPage from '../SessionIndexPage/SessionIndex';
 import SessionDetailPage from '../SessionDetailPage/SessionDetail';
 import SessionForm from '../../components/form/SessionFormPage/SessionForm';
+import SpaceView from '../SpaceViewPage/SpaceView';
 
-// import headerLogo from '../../assets/images/SPACE.jpeg'; 
 
 function App() {
   const location = useLocation();
@@ -27,8 +27,10 @@ function App() {
         <nav>
           <ul>
             <li><Link to="/about">About</Link></li>
+            <li><Link to="/space">My Space</Link></li>
             <li><Link to="/session">All Sessions</Link></li>
             <li><Link to="/session/new">Start New Session</Link></li>
+            
           </ul>
         </nav>
       </header>
@@ -43,7 +45,9 @@ function App() {
           <Route path="/session/new"                element={<SessionForm />}/>
           <Route path="/session/edit/:id"           element={<SessionForm />} />
           <Route path="/session/confirm_delete/:id" element={<SessionForm  />} />
-        
+          
+          <Route path="/space" element={<SpaceView />} />
+
         </Routes>
       </main>
     </>

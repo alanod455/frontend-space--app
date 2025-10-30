@@ -1,0 +1,76 @@
+.space-wrapper {
+  max-width: 1400px;
+  margin: 2rem auto;
+  text-align: center;
+}
+.space-container {
+  position: relative;
+  width: 100%;
+  max-width: 890px;   
+  height: 500px;     
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  background-image: url('/space-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #000;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+.space-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.25;
+  z-index: 0;
+}
+
+.space-object {
+  position: absolute;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.space-object:hover {
+  transform: scale(1.2);
+}
+
+.back-button {
+  margin-bottom: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color:  #7a4fc2;;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color:  #7a4fc2;;
+ 
+}
+
+
+.session-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.session-heading {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 0 0 10px #7a4fc2, 0 0 20px #000;
+  letter-spacing: 1px;
+  margin: 0;
+}

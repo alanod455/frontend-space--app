@@ -160,6 +160,11 @@ export default function SessionForm() {
             if (!hasSavedRef.current) {
               hasSavedRef.current = true;
               saveSession();
+              setShowCongrats(true);
+
+              setTimeout(() => {
+                setShowCongrats(false);
+              }, 6000);
             }
             return 0;
           }
@@ -172,26 +177,32 @@ export default function SessionForm() {
   if ((editSession || deleteSession) && !id) return <h1>Invalid session ID</h1>;
   if (deleteSession && !currSession) return <h1>Loading...</h1>;
   if (deleteSession && currSession) return (
-    <>
-      <div className="page-header"><h1>Delete Session?</h1></div>
-      <h2>Are you sure you want to delete {currSession.title}?</h2>
-      <form onSubmit={handleDelete}>
-        <button type="button" onClick={() => navigate(`/session/${currSession.id}`)} className="btn secondary">Cancel</button>
-        <button type="submit" className="btn danger">Yes - Delete!</button>
+    <section className="delete-card">
+      <div className="delete-header">
+        <h1>Delete Session?</h1>
+        <p>Are you sure you want to delete <strong>{currSession.title}</strong>?</p>
+      </div>
+
+      <form onSubmit={handleDelete} className="delete-actions">
+        <button type="button" onClick={() => navigate(`/session/${currSession.id}`)} className="btn secondary">
+          Cancel
+        </button>
+        <button type="submit" className="btn danger">
+          Yes - Delete!
+        </button>
       </form>
-    </>
+    </section>
   );
 
   if (editSession && !currSession) return <h1>Loading...</h1>;
   if (createSession || editSession) return (
     <>
-      <div className="page-header">
-        <h1>{editSession ? `Edit ${currSession?.title}` : 'Add a Session'}</h1>
-      </div>
 
       <section className="session-form">
+
         {!isRunning && (
           <>
+
             <h2>{createSession ? 'Start a New Session' : 'Update Session Details'}</h2>
 
             <label>
@@ -284,21 +295,53 @@ export default function SessionForm() {
         )}
 
         {isRunning && (
-          <p>
-            Time left: {Math.floor(timeLeft / 60)}:{String(timeLeft % 60).padStart(2, '0')}
-          </p>
+          <div className={`circular-timer ${timeLeft <= 10 ? 'flash' : ''}`}>
+            <svg width="160" height="160" viewBox="0 0 160 160">
+              <circle
+                cx="80"
+                cy="80"
+                r="70"
+                stroke="#eee"
+                strokeWidth="10"
+                fill="none"
+              />
+              <circle
+                cx="80"
+                cy="80"
+                r="70"
+                stroke="#2d2dff"
+                strokeWidth="10"
+                fill="none"
+                strokeDasharray={440}
+                strokeDashoffset={440 - (timeLeft / (duration * 60)) * 440}
+                transform="rotate(-90 80 80)"
+                style={{ transition: 'stroke-dashoffset 1s linear' }}
+              />
+              <text
+                x="80"
+                y="90"
+                textAnchor="middle"
+                fontSize="24"
+                fill="#2d2dff"
+                fontFamily="monospace"
+              >
+                {String(Math.floor(timeLeft / 60)).padStart(2, '0')}:
+                {String(timeLeft % 60).padStart(2, '0')}
+              </text>
+            </svg>
+          </div>
         )}
 
         {showCongrats && (
           <div className="congrats-message">
             <p>✨ Good job! ✨</p>
-            <p>You completed your session 🎉</p>
+            <p>You completed your session </p>
           </div>
         )}
       </section>
     </>
   );
-
+  setShowCongrats
 
   return null;
 }
