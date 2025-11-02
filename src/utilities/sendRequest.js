@@ -7,7 +7,10 @@ export default async function sendRequest(url, method = 'GET', payload) {
 
   try {
     const res = await fetch(`http://127.0.0.1:8000${url}`, options);
-    const data = await res.json(); 
+
+    if (res.status === 204) return null;
+
+    const data = await res.json();
 
     if (!res.ok) {
       throw new Error(data.error || 'Request failed');
@@ -16,6 +19,6 @@ export default async function sendRequest(url, method = 'GET', payload) {
     return data;
   } catch (err) {
     console.log('error in send-request:', err.message);
-    throw err; 
+    throw err;
   }
 }

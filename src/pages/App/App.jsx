@@ -8,7 +8,6 @@ import SessionDetailPage from '../SessionDetailPage/SessionDetail';
 import SessionForm from '../../components/form/SessionFormPage/SessionForm';
 import SpaceView from '../SpaceViewPage/SpaceView';
 
-
 function App() {
   const location = useLocation();
 
@@ -46,7 +45,8 @@ function App() {
           <Route path="/session/edit/:id"           element={<SessionForm />} />
           <Route path="/session/confirm_delete/:id" element={<SessionForm  />} />
           
-          <Route path="/space" element={<SpaceView />} />
+          <Route path="/space"                      element={<SpaceView />} />
+
 
         </Routes>
       </main>

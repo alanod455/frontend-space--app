@@ -1,4 +1,4 @@
-/* الحاوية العامة للنموذج */
+
 .session-form {
   background-color: rgba(20, 20, 30, 0.85);
   border-radius: 20px;
@@ -12,7 +12,7 @@
   animation: fadeIn 1s ease-out;
 }
 
-/* العناوين */
+
 .session-form h2 {
   color: #e0e0ff;
   text-align: center;
@@ -20,7 +20,7 @@
   margin-bottom: 12px;
 }
 
-/* الحقول */
+
 .session-form label {
   display: flex;
   flex-direction: column;
@@ -40,7 +40,6 @@
   font-size: 1rem;
 }
 
-/* معاينة الصورة */
 .image-preview {
   text-align: center;
   color: #b8aaff;
@@ -53,7 +52,7 @@
   box-shadow: 0 0 12px rgba(128, 0, 255, 0.3);
 }
 
-/* الأزرار */
+
 button,
 .btn {
   padding: 10px 20px;
@@ -90,7 +89,7 @@ button {
   color: #fff;
 }
 
-/* أزرار في صف */
+
 .form-actions {
   display: flex;
   justify-content: center;
@@ -98,14 +97,12 @@ button {
   margin-top: 16px;
 }
 
-/* المؤقت */
 .session-form p {
   text-align: center;
   font-size: 1.2rem;
   color: #e0e0ff;
 }
 
-/* الرسالة الاحتفالية */
 .congrats-message {
   background-color: rgba(255, 255, 255, 0.05);
   border: 1px solid #7a4fc2;
@@ -117,7 +114,7 @@ button {
   animation: popIn 0.6s ease-out;
   box-shadow: 0 0 20px rgba(255, 200, 255, 0.3);
 }
-/* كرت الحذف */
+
 .delete-card {
   background-color: rgba(20, 20, 30, 0.85);
   border: 1px solid #3c2a5d;
@@ -130,7 +127,6 @@ button {
   animation: fadeIn 0.8s ease-out;
 }
 
-/* العنوان والنص */
 .delete-header h1 {
   font-size: 2rem;
   color: #ff6b6b;
@@ -144,7 +140,6 @@ button {
   margin-bottom: 24px;
 }
 
-/* الأزرار */
 .delete-actions {
   display: flex;
   justify-content: center;
