@@ -164,7 +164,7 @@ export default function SessionForm() {
 
               setTimeout(() => {
                 setShowCongrats(false);
-              }, 6000);
+              }, 8000);
             }
             return 0;
           }

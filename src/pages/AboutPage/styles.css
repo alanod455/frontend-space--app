@@ -1,0 +1,66 @@
+.about-container {
+  background-color: rgba(20, 20, 30, 0.85);
+  border-radius: 24px;
+  padding: 40px 32px;
+  max-width: 800px;
+  margin: 60px auto;
+  box-shadow: 0 0 30px rgba(128, 0, 255, 0.3);
+  color: #e0e0ff;
+  animation: fadeIn 1s ease-out;
+  text-align: center;
+}
+
+.about-container h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #ffe8ff;
+  text-shadow: 0 0 10px #7a4fc2;
+}
+
+.about-container p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+  color: #cfcfff;
+}
+
+.about-container .slogan {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #ffdcff;
+  text-shadow: 0 0 8px #7a4fc2;
+  margin-top: 2rem;
+}
+
+.creator  {
+  font-size: 0.9rem;
+  color: #b8aaff;
+  margin-top: 2rem;
+  text-align: center;
+  font-style: italic;
+}
+
+
+
+.creator-link {
+  color: #b8aaff;
+  text-shadow: 0px 1px 2px #ffdcff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.creator-link:hover {
+  color: #ffe8ff;
+  text-shadow: 0 0 6px #7a4fc2;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
