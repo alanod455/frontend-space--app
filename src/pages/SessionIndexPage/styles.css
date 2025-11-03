@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  animation: fadeIn 1s ease-out;
 }
 
 
@@ -30,4 +31,17 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
+}
+
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

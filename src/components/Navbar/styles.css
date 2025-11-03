@@ -1,0 +1,56 @@
+
+
+.logo {
+  margin-right: auto;
+}
+
+.logo-img {
+  width: 70px;
+  height: 70px;
+  transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: rotate(5deg) scale(1.05);
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.nav-links li {
+  list-style: none;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  text-shadow: 0 0 6px #9f7aea;
+  transition: text-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links a:hover {
+  text-shadow: 0 0 12px #7a4fc2, 0 0 24px #7a4fc2;
+  transform: scale(1.05);
+}
+
+
+
+.btn.logout {
+  background-color: #7a4fc2;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn.logout:hover {
+  background-color: #9f7aea;
+  transform: scale(1.05);
+}

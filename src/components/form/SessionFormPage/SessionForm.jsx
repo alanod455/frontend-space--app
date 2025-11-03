@@ -75,33 +75,6 @@ export default function SessionForm() {
     });
   }
 
-
-  const saveSession = async () => {
-    let base64Image;
-
-    if (image) {
-      base64Image = await convertToBase64(image);
-    } else {
-      const response = await fetch('/CARD.png');
-      const blob = await response.blob();
-      base64Image = await convertToBase64(blob);
-    }
-
-    const sessionData = {
-      title,
-      duration,
-      image: base64Image,
-      sound,
-    };
-
-    try {
-      const newSession = await sessionAPI.create(sessionData);
-      navigate(`/session/${newSession.id}`, { state: { session: newSession } });
-    } catch (error) {
-      console.error("Error saving session:", error);
-    }
-  };
-
   async function handleUpdateSession() {
     const updatedData = { title, sound };
 
@@ -126,6 +99,38 @@ export default function SessionForm() {
     }
   }
 
+  async function saveSession() {
+    let base64Image;
+
+    if (image) {
+      base64Image = await convertToBase64(image);
+    } else {
+      const response = await fetch('/CARD.png');
+      const blob = await response.blob();
+      base64Image = await convertToBase64(blob);
+    }
+
+    const sessionData = {
+      title,
+      duration,
+      image: base64Image,
+      sound,
+    };
+
+    try {
+      const newSession = await sessionAPI.create(sessionData);
+      setShowCongrats(true);
+
+      setTimeout(() => {
+        setShowCongrats(false);
+        navigate(`/session/${newSession.id}`, { state: { session: newSession } });
+      }, 5000); 
+    } catch (error) {
+      console.error("Error saving session:", error);
+      setShowCongrats(false);
+    }
+  }
+
   function handleStartStop() {
     if (isRunning) {
       const confirmStop = window.confirm("This session will not be saved. Are you sure you want to stop?");
@@ -141,6 +146,7 @@ export default function SessionForm() {
         setError('Session title is required.');
         return;
       }
+
       setError('');
       setTimeLeft(duration * 60);
       setIsRunning(true);
@@ -157,15 +163,12 @@ export default function SessionForm() {
           if (prev <= 1) {
             clearInterval(timerRef.current);
             audioRef.current?.pause();
+
             if (!hasSavedRef.current) {
               hasSavedRef.current = true;
-              saveSession();
-              setShowCongrats(true);
-
-              setTimeout(() => {
-                setShowCongrats(false);
-              }, 8000);
+              saveSession(); 
             }
+
             return 0;
           }
           return prev - 1;
