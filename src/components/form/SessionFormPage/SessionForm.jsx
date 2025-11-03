@@ -132,6 +132,8 @@ export default function SessionForm() {
   }
 
   function handleStartStop() {
+    console.log("Updating session ID:", id);
+
     if (isRunning) {
       const confirmStop = window.confirm("This session will not be saved. Are you sure you want to stop?");
       if (confirmStop) {
