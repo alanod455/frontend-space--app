@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router';
 
 export default function SpaceView() {
   const [spaces, setSpaces] = useState([]);
+  const [counts, setCounts] = useState({ stars: 0, planets: 0 });
   const navigate = useNavigate();
 
   const planetImages = [
@@ -17,6 +18,9 @@ export default function SpaceView() {
     async function fetchSpaces() {
       try {
         const allSessions = await sessionAPI.index();
+
+        let starCount = 0;
+        let planetCount = 0;
 
         const enriched = allSessions.map((session) => {
           const isPlanet = session.duration >= 5;
@@ -31,6 +35,12 @@ export default function SpaceView() {
             ? planetImages[Math.floor(Math.random() * planetImages.length)]
             : '/star.png';
 
+          if (isPlanet) {
+            planetCount++;
+          } else {
+            starCount++;
+          }
+
           return {
             id: session.id,
             title: session.title,
@@ -43,6 +53,7 @@ export default function SpaceView() {
         });
 
         setSpaces(enriched);
+        setCounts({ stars: starCount, planets: planetCount });
       } catch (err) {
         console.log(err);
       }
@@ -53,9 +64,25 @@ export default function SpaceView() {
 
   return (
     <div className="space-wrapper">
-      <div className="session-header">
+      <div className="space-header">
         <h2 className="session-heading">All Sessions</h2>
       </div>
+
+
+      <section className="space-info-grid">
+        <div className="space-card star-card">
+          <h3>Stars✨</h3>
+          <p>Quick sparks of focus.<br />Sessions under 5 minutes.</p>
+          <p><strong>✨:</strong> {counts.stars}</p>
+        </div>
+
+        <div className="space-card planet-card">
+          <h3>Planets🪐</h3>
+          <p>Deep journeys of calm.<br />Sessions 5 minutes or more.</p>
+          <p><strong>🪐:</strong> {counts.planets}</p>
+        </div>
+      </section>
+
       <section className="space-container">
         <img src="/space-bg.jpg" className="space-bg" alt="background" />
 
@@ -72,7 +99,7 @@ export default function SpaceView() {
               height: `${item.size}px`,
             }}
             title={item.title}
-            onClick={() => navigate(`/session/${item.id}`)} 
+            onClick={() => navigate(`/session/${item.id}`)}
           />
         ))}
       </section>
