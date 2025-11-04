@@ -29,7 +29,6 @@
   transform: scale(1.05);
 }
 
-
 .session-details {
   text-align: center;
   color: #e0e0ff;
@@ -79,6 +78,8 @@ audio {
 .session-tasks ul {
   list-style: none;
   padding: 0;
+  margin: 0;
+  overflow-x: hidden;
 }
 
 .session-tasks li {
@@ -90,6 +91,8 @@ audio {
   border-radius: 12px;
   background-color: rgba(255, 255, 255, 0.08);
   box-shadow: 0 0 10px rgba(128, 0, 255, 0.15);
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .task-content {
@@ -97,15 +100,16 @@ audio {
   flex-direction: column;
   align-items: flex-start;
   gap: 4px;
+  width: 100%;
 }
 
 .task-content strong {
- color: #ffffff;
+  color: #ffffff;
 }
 
 .task-content span {
   font-size: 0.9rem;
- color: #cfcfff;
+  color: #cfcfff;
 }
 
 .inline-edit-form,
@@ -169,14 +173,13 @@ audio {
   background-image: url('/icons/add.png');
 }
 
-
 .session-actions {
   display: flex;
   justify-content: center;
+  flex-direction: row; 
   gap: 16px;
   margin-top: 24px;
 }
-
 
 .error-msg {
   margin-top: 12px;
@@ -186,6 +189,74 @@ audio {
   text-align: center;
 }
 
+@media (max-width: 768px) {
+  .detail-session-container {
+    padding: 24px 16px;
+    margin: 20px auto;
+    gap: 24px;
+  }
+
+  .detail-session-img img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .session-details h1 {
+    font-size: 1.5rem;
+  }
+
+  .session-details h2 {
+    font-size: 1rem;
+  }
+
+  .session-details p {
+    font-size: 0.9rem;
+  }
+
+  .session-tasks li {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .task-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .icon-btn {
+    width: 44px;
+    height: 44px;
+    background-size: 24px 24px;
+  }
+
+  .inline-edit-form,
+  .inline-add-form {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .inline-edit-form input,
+  .inline-add-form input {
+    width: 100%;
+    font-size: 1rem;
+    padding: 10px 14px;
+  }
+
+  .session-actions {
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  audio {
+    max-width: 100%;
+  }
+}
 
 @keyframes fadeIn {
   0% {

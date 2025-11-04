@@ -181,13 +181,15 @@ export default function SessionDetail() {
                       required
                       min="1"
                     />
-                    <button type="submit" className="icon-btn save" title="Save" />
-                    <button type="button" onClick={() => setEditingTaskId(null)} className="icon-btn cancel" title="Cancel" />
+                    <div className="task-actions">
+                      <button type="submit" className="icon-btn save" title="Save" />
+                      <button type="button" onClick={() => setEditingTaskId(null)} className="icon-btn cancel" title="Cancel" />
+                    </div>
                   </form>
                 ) : (
                   <>
                     <div className="task-content">
-                      <strong>{task.title}</strong> 
+                      <strong>{task.title}</strong>
                       <span>{task.duration} min</span>
                     </div>
                     <div className="task-actions">

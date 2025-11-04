@@ -8,6 +8,7 @@ export async function signup(formData) {
         return response.user
     } catch(err) {
         localStorage.removeItem('token');
+        console.log(err.response.data);
         return null;
     }
 }
