@@ -69,15 +69,15 @@ To run the frontend locally using Docker:
 # Clone the repository
 ```
 git clone https://github.com/alanod455/frontend-space--app
-cd frontend
+cd frontend-space--app
 ```
 # Build and run the container
 ```
 docker build -t frontend .
-docker run -p 8000:8000 frontend
+docker run -p 5173:5173 frontend
 ```
 
-The app will be available at [Frontend](http://localhost:8000)
+The app will be available at [Frontend](http://localhost:5173)
 
 ## IceBox Features
 
