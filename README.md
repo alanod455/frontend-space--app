@@ -3,7 +3,6 @@
 </p>
 
 # Space Frontend
-
 A responsive and immersive frontend interface for managing focus sessions, tasks, and visualizing progress through a cosmic space view. Built with React, this app allows users to create timed sessions, assign tasks, and explore their productivity in a playful, visual way.
 
 ---
@@ -69,13 +68,13 @@ To run the frontend locally using Docker:
 
 # Clone the repository
 ```
-git clone https://github.com/your-org/focusflow-frontend.git
-cd focusflow-frontend
+git clone https://github.com/alanod455/frontend-space--app
+cd frontend
 ```
 # Build and run the container
 ```
-docker build -t focusflow-frontend .
-docker run -p 8000:8000 focusflow-frontend
+docker build -t frontend .
+docker run -p 8000:8000 frontend
 ```
 
 The app will be available at [Frontend](http://localhost:8000)
@@ -94,4 +93,4 @@ These features are planned but not yet implemented:
 
 ---
 
-Built with 💜 by a Alanoud Almarshad
+Built with 💜 by a [Alanoud Almarshad](https://github.com/alanod455)
